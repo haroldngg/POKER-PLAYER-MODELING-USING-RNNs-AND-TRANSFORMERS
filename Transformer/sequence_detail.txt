@@ -1,0 +1,35 @@
+
+amelioration : dimension 10 et au début : 
+(1, 0, 0, 0, 0, 0, 0, tournoir/cashgame, places payes, nombre de joueurs restants)
+
+
+
+sequence : dimension 9
+
+Phase initiatique :
+(1, 0, 0, 0, 0, 0, indice 'IlxxxlI', 0, 0)
+(0, 1, 0, 0, 0, 0, valeur, couleur, 0) # premiere carte d'ilxxxli
+(0, 1, 0, 0, 0, 0, valeur, couleur, 0) # deuxieme carte d'ilxxxli
+
+Puis stack des 9 Pax : 
+(0, 0, 1, 0, 0, 0, indice, 0, stack)
+
+Blindes :
+(0, 0, 0, 1, 0, 0, indice joueur, action, sizing) 
+
+Phases de jeu : 
+Action :
+(0, 0, 0, 0, 1, 0, indice joueur, action, sizing)
+
+découverte d'une carte :
+(0, 0, 0, 0, 0, 1, valeur, couleur, 0)
+
+
+Réseau : 
+
+Chaque élément de séquence -> embedding -> nouvelle séquence dans une nouvelle dimension.
+
+Nouvelle séquence -> TRANSFORMER (learned positional encoder)  -> On récupère l'élément liée à la position de 'IlxxxlI' premier élément de la liste)
+
+élément de la séquence -> MLP -> 3 noeuds / 1 noeud (pour connaitre le sizing)
+
